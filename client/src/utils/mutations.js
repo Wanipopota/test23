@@ -46,3 +46,17 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+
+export const ADD_COMMENT = gql`
+  mutation addComment($productId: ID!, $commentText: String!) {
+    addComment(productId: $productId, commentText: $commentText) {
+      _id
+      comments {
+        commentText
+        username
+        createdAt
+      }
+    }
+  }
+`;

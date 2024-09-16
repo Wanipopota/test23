@@ -6,6 +6,14 @@ const typeDefs = `
     image: String
     quantity: Int
     price: Float
+    comments: [Comment]  # Add comments field to Product type
+  }
+
+  type Comment {
+    _id: ID
+    commentText: String
+    username: String
+    createdAt: String
   }
 
   type Order {
@@ -51,6 +59,7 @@ const typeDefs = `
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     addOrder(products: [ID]!): Order
+    addComment(productId: ID!, commentText: String!): Product  # Add mutation to add comments to products
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     updateProduct(_id: ID!, quantity: Int!): Product
     login(email: String!, password: String!): Auth
